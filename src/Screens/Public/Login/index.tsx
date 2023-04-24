@@ -10,7 +10,7 @@ import {
 } from "@/_utils/form/validations/login";
 
 export function Login(): JSX.Element {
-  const { onSubmitLogin } = useLogin();
+  const { onSubmitContact } = useLogin();
 
   return (
     <ContainerLogin>
@@ -27,15 +27,17 @@ export function Login(): JSX.Element {
 
       <Form
         onSubmit={values => {
-          onSubmitLogin({
-            user_name: values?.user_name,
-            password: values?.password
-          });
+          onSubmitContact({ values });
         }}
         initialValues={initialValuesLogin}
         validate={validateLogin}
         render={({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            data-netlify="true"
+            name="contato"
+            id="contato"
+          >
             <div className="login__fields">
               <TextInput
                 label="SIAPE *"

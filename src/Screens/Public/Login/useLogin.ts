@@ -18,13 +18,14 @@ export function useLogin(): any {
       // });
       // const getBody = new URLSearchParams(payload).toString();
       // const response = await fetch("/", {
+      const body = {
+        "form-name": "contato",
+        ...payload
+      };
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: querystring.stringify({
-          "form-name": "contato",
-          ...payload
-        })
+        body: querystring.stringify(body)
       });
       console.log(JSON.stringify("PYLOAD", null, 2));
       console.log(JSON.stringify(payload, null, 2));

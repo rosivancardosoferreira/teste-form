@@ -10,7 +10,7 @@ import {
 } from "@/_utils/form/validations/login";
 
 export function Login(): JSX.Element {
-  const { onSubmitContact } = useLogin();
+  const { onSubmitContact, refForm } = useLogin();
 
   return (
     <ContainerLogin>
@@ -26,9 +26,7 @@ export function Login(): JSX.Element {
       />
 
       <Form
-        onSubmit={values => {
-          onSubmitContact({ values });
-        }}
+        onSubmit={onSubmitContact}
         initialValues={initialValuesLogin}
         validate={validateLogin}
         render={({ handleSubmit }) => (
@@ -37,6 +35,7 @@ export function Login(): JSX.Element {
             data-netlify="true"
             name="contato"
             id="contato"
+            ref={refForm}
           >
             <div className="login__fields">
               <TextInput

@@ -12,20 +12,15 @@ export function useLogin(): any {
         ...dataForm
       };
 
-      // const formData = new FormData();
-      // Object.entries(payload).forEach(([key, value]): void => {
-      //   formData.append(key, String(value));
-      // });
-      // const getBody = new URLSearchParams(payload).toString();
-      // const response = await fetch("/", {
-      const body = {
-        "form-name": "contato",
-        ...payload
-      };
+      const formData = new FormData();
+      Object.entries(payload).forEach(([key, value]): void => {
+        formData.append(key, String(value));
+      });
+      // const body = new URLSearchParams(formData);
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: querystring.stringify(body)
+        body: formData
       });
       console.log(JSON.stringify("PYLOAD", null, 2));
       console.log(JSON.stringify(payload, null, 2));

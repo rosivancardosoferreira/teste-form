@@ -10,7 +10,7 @@ import {
 } from "@/_utils/form/validations/login";
 
 export function Login(): JSX.Element {
-  const { onSubmitContact, refForm } = useLogin();
+  const { onSubmitContact } = useLogin();
 
   return (
     <ContainerLogin>
@@ -35,8 +35,6 @@ export function Login(): JSX.Element {
             data-netlify="true"
             name="contato"
             id="contato"
-            ref={refForm}
-            data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contato" />
             <div className="login__fields">

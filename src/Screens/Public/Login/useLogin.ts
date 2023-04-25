@@ -1,3 +1,4 @@
+import querystring from "qs";
 import React from "react";
 
 export function useLogin(): any {
@@ -11,16 +12,19 @@ export function useLogin(): any {
         ...dataForm
       };
 
-      const formData = new FormData();
-      Object.entries(payload).forEach(([key, value]): void => {
-        formData.append(key, String(value));
-      });
-      const getBody = new URLSearchParams(payload).toString();
+      // const formData = new FormData();
+      // Object.entries(payload).forEach(([key, value]): void => {
+      //   formData.append(key, String(value));
+      // });
+      // const getBody = new URLSearchParams(payload).toString();
       // const response = await fetch("/", {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: getBody
+        body: querystring.stringify({
+          "form-name": "contato",
+          ...payload
+        })
       });
       console.log(JSON.stringify("PYLOAD", null, 2));
       console.log(JSON.stringify(payload, null, 2));

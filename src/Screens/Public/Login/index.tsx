@@ -35,7 +35,6 @@ export function Login(): JSX.Element {
             data-netlify="true"
             name="contato"
             id="contato"
-            data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contato" />
             <div className="login__fields">

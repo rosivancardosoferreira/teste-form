@@ -15,7 +15,7 @@ export function useLogin(): any {
       Object.entries(payload).forEach(([key, value]): void => {
         formData.append(key, String(value));
       });
-      const getBody = new URLSearchParams(formData).toString();
+      const getBody = new URLSearchParams(payload).toString();
       // const response = await fetch("/", {
       const response = await fetch("/", {
         method: "POST",

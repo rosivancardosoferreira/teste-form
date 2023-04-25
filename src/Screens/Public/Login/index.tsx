@@ -38,7 +38,7 @@ export function Login(): JSX.Element {
             ref={refForm}
             data-netlify-honeypot="bot-field"
           >
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value="contato" />
             <div className="login__fields">
               <TextInput
                 label="SIAPE *"

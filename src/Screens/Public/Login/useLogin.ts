@@ -22,7 +22,7 @@ export function useLogin(): any {
       //   formData.append(key, String(value));
       // });
 
-      const body = { "form-name": "Contato", ...values };
+      const body = { "form-name": "contato", ...values };
 
       const response = await fetch("/", {
         method: "POST",
